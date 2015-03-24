@@ -69,7 +69,7 @@ $(document).on("click", "button.submit", function () {
             }
         }).then(function (json) {
             var newPollId = json.success.id;
-            window.location = "vote.html?id=" + newPollId;
+            window.location = "vote.html?id=" + newPollId + "#true";
         });
     }
 });

@@ -54,11 +54,23 @@
             });
         }
 
+        function displayCreatedMessage() {
+            $(".created-wrapper").show();
+            $(".created-notification .created-id").text(m_pollResults.id);
+            $(".created-notification .created-url").text(
+                            "http://trmonks-pollo.appspot.com/api/poll/" + m_pollResults.id);
+        }
+
         $(document).ready(function () {
             if (document.location.search.length) {
                 try {
                     var pollId = document.location.search.substr(4);
                     displayViewPoll(pollId);
+
+                    var hash = document.location.hash;
+                    if (hash === "#true") {
+                        displayCreatedMessage();
+                    }
                 } catch (e) {
                     $(".fetch-error-wrapper").show();
                 }
@@ -79,6 +91,16 @@
             <div class="poll-wrapper">
                 <div class="fetch-error-wrapper small-text">
                     This poll does not exist.
+                </div>
+                <div class="created-wrapper">
+                    <div class="created-notification small-text">
+                        <h2 class="medium-text">Congratulations!</h2>
+                        Your poll has been created! <br />
+                        You can share this poll with your friends by sending them your poll's unique ID or URL:
+                        <div class="created-id small-text"></div>
+                        or
+                        <div class="created-url small-text"></div>
+                    </div>
                 </div>
                 <div class="vote-wrapper">
                     <div class="title large-text white-text"></div>
