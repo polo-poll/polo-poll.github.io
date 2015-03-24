@@ -142,6 +142,7 @@ option.dummy {
 .fetch-text {
     display: inline-block;
     width: 260px;
+    text-align: right;
 }
 .fetch-error {
     float: left;
