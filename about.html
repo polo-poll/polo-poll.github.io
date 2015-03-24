@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Polo-Poll - About</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./about-styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        function updateRecentPollsList() {
+            $(".fetch-from-history .fetch-input").html(function () {
+                var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
+                var html = "";
+                if (recentPolls != null && recentPolls.length > 0) {
+                    html += "<select class='recent-poll-options'>";
+                    html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
+                    for (var i = 0; i < recentPolls.length; i++) {
+                        html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
+                    }
+                    html += "</select>";
+                }
+                return html;
+            });
+        }
+
+        $(document).ready(function () {
+            $(".fetch-button").click(function (e) {
+                var pollId = $.trim($(".url-input").val());
+                if (pollId) {
+                    window.location = "vote.html?id=" + pollId;
+                } else {
+                    $(".fetch-error").show();
+                }
+            });
+            $(document).on('change', '.recent-poll-options', function (e) {
+                var pollId = $(this).val();
+                window.location = "vote.html?id=" + pollId;
+            });
+
+            updateRecentPollsList();
+        });
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="about"><a class="medium-text" href="index.html">Home</a></div>
+        <div class="content-wrapper">
+            <div style="flex: 1 0 10px;"></div>
+            <div class="create-wrapper">
+                <div class="about-text medium-text">
+                    <h3 class="large-text">About</h3>
+                    Polo-Poll is a simple site for creating polls that you can share with your friends.
+                </div>
+                <div class="shoutouts medium-text">
+                    <h3 class="large-text">Libraries</h3>
+                    This site uses Jack Moore's <a class="medium-text" href="http://www.jacklmoore.com/autosize">Autosize</a> library.
+                </div>
+                <div class="fetch-options">
+                    <span class="looking-text medium-text">Looking for a poll?</span>
+                    <div class="fetch-from-id">
+                        <div class="fetch-text small-text">Enter its ID or URL here:</div>
+                        <div class="fetch-input">
+                            <input type="text" autofocus class="url-input small-text" placeholder="Polo-poll" />
+                            <div class="button fetch-button small-text">Fetch</div>
+                            <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                        </div>
+                    </div>
+                    <div class="fetch-from-history">
+                        <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
+                        <div class="fetch-input"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1 0 10px;"></div>
+        </div>
+    </div>
+</body>
+</html>

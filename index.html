@@ -1,0 +1,91 @@
+<html>
+<head>
+    <title>Pollo-Poll</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="./create-styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>   
+	<script type="text/javascript">
+		var submitButton = ["Go!", "Submit it!", "Pollify", "Let's do this!", "Done!"];
+        m_pollId = 0;
+
+        function updateRecentPollsList() {
+            $(".fetch-from-history .fetch-input").html(function () {
+                var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
+                var html = "";
+                if (recentPolls != null && recentPolls.length > 0) {
+                    html += "<select class='recent-poll-options'>";
+                    html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
+                    for (var i = 0; i < recentPolls.length; i++) {
+                        html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
+                    }
+                    html += "</select>";
+                }
+                return html;
+            });
+        }
+
+        $(document).ready(function () {
+            $(".fetch-button").click(function (e) {
+                var pollId = $.trim($(".url-input").val());
+                if (pollId) {
+                    window.location = "vote.html?id=" + pollId;
+                } else {
+                    $(".fetch-error").show();
+                }
+            });
+            $(document).on('change', '.recent-poll-options', function (e) {
+                var pollId = $(this).val();
+                window.location = "vote.html?id=" + pollId;
+            });
+
+            $(".create-wrapper .option-row").remove();
+            addNewOption();
+            addNewOption();
+            autosize($("textarea.title"));
+            var value = Math.floor(Math.random() * submitButton.length);
+            $(".create-wrapper button.submit").text(submitButton[value]);
+            updateRecentPollsList();
+        });
+    </script>
+    <script src="./autosize.min.js"></script>
+    <script src="./poll_create.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+        <div class="about"><a class="medium-text" href="about.html">About</a></div>
+		<div class="content-wrapper">
+            <div style="flex: 1 0 10px;"></div>
+            <div class="create-wrapper">
+                <form class="create">
+                    <div class="title-wrapper">
+                        <label class="title large-text white-text">Title</label>
+                        <textarea autofocus class="title large-text" rows="1" type="text"></textarea>
+                    </div>
+                    <div class="options-wrapper">
+                        <label class="option large-text white-text">Options</label>
+                        <div class="options">
+                        </div>
+                    </div>
+                </form>
+                <div class="submit-wrapper"><button class="button submit medium-text"></button></div>
+                <div class="fetch-options">
+                    <span class="looking-text medium-text">Looking for a poll?</span>
+                    <div class="fetch-from-id">
+                        <div class="fetch-text small-text">Enter its ID or URL here:</div>
+                        <div class="fetch-input">
+                            <input type="text" autofocus class="url-input small-text" placeholder="Polo-poll" />
+                            <div class="button fetch-button small-text">Fetch</div>
+                            <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                        </div>
+                    </div>
+                    <div class="fetch-from-history">
+                        <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
+                        <div class="fetch-input"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1 0 10px;"></div>
+		</div>
+	</div>
+</body>
+</html>
