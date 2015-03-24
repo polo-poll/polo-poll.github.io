@@ -1,0 +1,121 @@
+<html>
+<head>
+    <title>Pollo-Poll</title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+		var colors = ["#4F79CC", "#4ECDC4", "#C7F464", "#F6C14F", "#EA8F56", "#FF6B6B", "#C44D58", "#914D8B"];
+
+        m_pollResults = {};
+        m_pollId = 0;
+        m_graphOrientation = "left";
+        m_viewGraph = false;
+        m_timeoutId = -1;
+
+        window.onresize = function (event) {
+            updateBarMaxHeight();
+        }
+
+        function resetGraphPage() {
+            $(".poll-wrapper .graph-wrapper .row").remove();
+            $(".poll-wrapper .graph-wrapper").hide();
+            $(".position-wrapper").hide();
+        }
+        function resetVotePage() {
+            $(".poll-wrapper .vote-wrapper .created-wrapper").hide();
+            $(".poll-wrapper .vote-wrapper .title").html("");
+            $(".poll-wrapper .vote-wrapper .option-row:not(.skip-wrapper)").remove();
+            $(".poll-wrapper .vote-wrapper").hide();
+        }
+
+        function displayViewPoll(pollId) {
+            $(".fetch-wrapper").css({ "display": "inline-block" });
+            $(".poll-wrapper").css({ "display": "flex" });
+            $(".url-input").val(pollId);
+            m_pollId = pollId;
+            getPollResults(m_pollId).then(function () {
+                displayVoteOptions();
+            });
+        }
+
+        function updateRecentPollsList() {
+            $(".fetch-from-history .fetch-input").html(function () {
+                var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
+                var html = "";
+                if (recentPolls != null && recentPolls.length > 0) {
+                    html += "<select class='recent-poll-options'>";
+                    html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
+                    for (var i = 0; i < recentPolls.length; i++) {
+                        html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
+                    }
+                    html += "</select>";
+                }
+                return html;
+            });
+        }
+
+        $(document).ready(function () {
+            if (document.location.search.length) {
+                try {
+                    var pollId = document.location.search.substr(4);
+                    displayViewPoll(pollId);
+                } catch (e) {
+                    $(".fetch-error-wrapper").show();
+                }
+            } else {
+                window.location = "index.html";
+            }
+            updateRecentPollsList();
+        });
+    </script>
+    <script src="./poll_fetch.js"></script>
+    <script src="./poll_vote.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="about"><a class="medium-text" href="about.html">About</a></div>
+        <div class="content-wrapper">
+            <div style="flex: 1 0 10px;"></div>
+            <div class="poll-wrapper">
+                <div class="fetch-error-wrapper small-text">
+                    This poll does not exist.
+                </div>
+                <div class="vote-wrapper">
+                    <div class="title large-text white-text"></div>
+                    <div class="options">
+                    </div>
+                    <div class="skip-wrapper">
+                        <div class="skip-voting small-text">Skip voting</div>
+                    </div>
+                </div>
+                <div class="graph-wrapper">
+                    <div class="position-wrapper">
+                        <div class="position-image left"></div>
+                        <div class="position-image top"></div>
+                        <div class="position-image right"></div>
+                        <div class="position-image bottom"></div>
+                    </div>
+                    <div class="graph-container left"></div>
+                </div>
+                <div class="fetch-options">
+                    <span class="looking-text medium-text">Looking for a poll?</span>
+                    <div class="fetch-from-id">
+                        <div class="fetch-text small-text">Enter its ID or URL here:</div>
+                        <div class="fetch-input">
+                            <input type="text" autofocus class="url-input small-text" placeholder="Polo-poll" />
+                            <div class="button fetch-button small-text">Fetch</div>
+                            <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                        </div>
+                    </div><br />
+                    <div class="fetch-from-history">
+                        <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
+                        <div class="fetch-input"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="flex: 1 0 10px;"></div>
+        </div>
+    </div>
+</body>
+</html>
