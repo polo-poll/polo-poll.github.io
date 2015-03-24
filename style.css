@@ -315,12 +315,7 @@ select.recent-poll-options {
     flex-direction: column;
     flex: 1 0 auto;
 }
-.graph-container.top .graph, .graph-container.bottom .graph{
-    display: flex;
-    flex-direction: row;
-    flex: 1 0 100px;
-}
-.graph-container.left .graph, .graph-container.right .graph {
+.graph-container .graph {
     display: flex;
     flex-direction: column;
     flex: 1 0 100px;
@@ -331,12 +326,9 @@ select.recent-poll-options {
     padding-bottom: 5px;
 }
 .row {
-	padding: 1px 5px;
+	padding: 10px 5px;
 }
-.flat.row {
-    padding: 10px 5px;
-}
-.graph-wrapper .flat .option {
+.graph-wrapper .option {
 	display: inline-block;
 	text-align: right;
 	width: 50%;
@@ -346,7 +338,7 @@ select.recent-poll-options {
 .option-text {
     font-style: italic;
 }
-.flat .vote-cell {
+.vote-cell {
 	display: inline-block;
 	vertical-align: middle;
 	width: 50%;
@@ -423,142 +415,5 @@ select.recent-poll-options {
     }
     .vote-wrapper .skip-wrapper {
         margin-top: 10px;
-    }
-}
-
-
-/* ==== ROTATED GRAPH ==== */
-.rotated-container {
-    display: flex;
-    flex: 1 0 25px;
-    padding: 0 1px;
-}
-.rotated-container .row {
-    padding: 0px 1px;
-    flex: 1 0 25px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-.rotated-container .option {
-    flex: 0 0 150px;
-    display: flex;
-	flex-direction: column;
-}
-.rotated-container.top .option {
-	align-items: flex-end;
-}
-.rotated-container.bottom .option {
-	align-items: flex-start;
-    width: 100%;
-}
-.rotated-container .vote-cell {
-    display: flex;
-    flex: 1 0 200px;
-    align-items: flex-end;
-    width: 100%;
-    z-index: 1;
-}
-.rotated-container.top .vote-cell {
-    align-items: flex-start;
-}
-.rotated-container .option-span-wrapper {
-    width: 10px;
-    display: flex;
-}
-.rotated-container.top .option-span-wrapper {
-    flex: 1 0 10px;
-    align-items: flex-end;
-    -webkit-transform-origin: left bottom 0;
-	-webkit-transform: translate(9px, 1px) rotate(-50deg);
-}
-.rotated-container.bottom .option-span-wrapper {
-    align-items: flex-start;
-    height: 10px;
-    -webkit-transform-origin: left top 0;
-	-webkit-transform: translate(20px, -17px) rotate(50deg);
-}
-
-.rotated-container .option-text {
-	padding: 4px 0px;
-    border-bottom: 1px solid grey;
-    white-space: nowrap;
-    display: inline-block;
-    overflow: hidden;
-    min-width: 150px;
-    max-width: 150px;
-    text-overflow: ellipsis;
-}
-.rotated-container .vote {
-    display: flex;
-    padding: 5px 0 0 0;
-    width: 100%;
-}
-.rotated-container.top .vote {
-    align-items: flex-end;
-}
-.rotated-container.bottom .vote {
-    align-items: flex-start;
-}
-.rotated-container .vote-count {
-    margin: 0 auto;
-    margin-top: -5px;
-}
-
-
-@media screen and (max-height: 250px){
-    .rotated-container .option {
-        flex: 0 0 60px;
-    }
-    .rotated-container .option-text {
-        min-width: 80px;
-    }
-}
-@media screen and (min-height: 251px) and (max-height: 300px) {
-    .rotated-container .option {
-        flex: 0 0 80px;
-    }
-    .rotated-container .option-text {
-        min-width: 100px;
-    }
-}
-@media screen and (min-height: 301px) and (max-height: 350px) {
-    .rotated-container .option {
-        flex: 0 0 100px;
-    }
-    .rotated-container .option-text {
-        min-width: 126px;
-    }
-}
-@media screen and (min-height: 351px) and (max-height: 400px) {
-    .rotated-container .option {
-        flex: 0 0 120px;
-    }
-    .rotated-container .option-text {
-        min-width: 152px;
-    }
-}
-@media screen and (min-height: 401px) and (max-height: 450px) {
-    .rotated-container .option {
-        flex: 0 0 140px;
-    }
-    .rotated-container .option-text {
-        min-width: 183px;
-    }
-}
-@media screen and (min-height: 451px) and (max-height: 500px){
-    .rotated-container .option {
-        flex: 0 0 160px;
-    }
-    .rotated-container .option-text {
-        min-width: 208px;
-    }
-}
-@media screen and (min-height: 501px) {
-    .rotated-container .option {
-        flex: 0 0 170px;
-    }
-    .rotated-container .option-text {
-        min-width: 222px;
     }
 }

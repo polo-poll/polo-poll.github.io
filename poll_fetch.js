@@ -13,16 +13,11 @@ function escapeHtml(string) {
 }
 
 function resultsToLhsHtml(pollOption, colourIndex) {
-    resetOrientationButtons();
-    $(".position-image.left").addClass("selected");
-    $(".graph-container").removeClass(m_graphOrientation);
-    $(".graph-container").addClass("left");
-    m_graphOrientation = "left";
     var html = "<div class='graph-title large-text white-text'>" + m_pollResults.title + "</div>";
     for (var i = 0; i < m_pollResults.options.length; i++) {
         var colourIndex = i % colors.length;
         var pollOption = m_pollResults.options[i];
-        html += "<div class='flat row'>" +
+        html += "<div class='row'>" +
                 "<div class='option'><span class='option-text white-text medium-text'>" + pollOption.text + "</span></div>" +
                 "<div class='vote-cell'>" +
                 "<div class='vote' style='width:" + pollOption.portionOfVotes +
@@ -32,136 +27,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
     }
     $(".poll-wrapper .graph-wrapper").css({ "display": "block" });
     $(".graph-wrapper .graph-container").html(html);
-    $(".graph-wrapper .vote").css({
-        "border-top-left-radius": "0px",
-        "border-bottom-left-radius": "0px",
-        "border-top-right-radius": "5px",
-        "border-bottom-right-radius": "5px",
-        "float": "left"
-    });
-    $(".graph-wrapper .option").css({
-        "text-align": "right"
-    });
 }
-function resultsToRhsHtml(colourIndex) {
-    resetOrientationButtons();
-    $(".position-image.right").addClass("selected");
-    $(".graph-container").removeClass(m_graphOrientation);
-    $(".graph-container").addClass("right");
-    m_graphOrientation = "right";
-
-    var html = "<div class='graph-title large-text white-text'>" + m_pollResults.title + "</div>";
-    for (var i = 0; i < m_pollResults.options.length; i++) {
-        var colourIndex = i % colors.length;
-        var pollOption = m_pollResults.options[i];
-        html += "<div class='flat row'>" +
-                "<div class='vote-cell'>" +
-                "<div class='vote' style='width:" + pollOption.portionOfVotes +
-                    "%; background-color: " + colors[colourIndex] + "'>" +
-                    "<span class='vote-count medium-text white-text'>" + pollOption.votes + "</span></div>" +
-                "</div>" +
-                "<div class='option'><span class='option-text medium-text white-text'>" + pollOption.text + "</span></div>" +
-            "</div>";
-    }
-    $(".poll-wrapper .graph-wrapper").css({ "display": "block" });
-    $(".graph-wrapper .graph-container").html(html);
-    $(".graph-wrapper .vote-cell").css({
-        "display": "inline-block",
-        "vertical-align": ""
-    });
-    $(".graph-wrapper .vote").css({
-        "border-top-right-radius": "0px",
-        "border-bottom-right-radius": "0px",
-        "border-top-left-radius": "5px",
-        "border-bottom-left-radius": "5px",
-        "float": "right"
-    });
-    $(".graph-wrapper .option").css({
-        "text-align": "left"
-    });
-}
-function resultsToBottomHtml(colourIndex) {
-    resetOrientationButtons();
-    $(".position-image.bottom").addClass("selected");
-    $(".graph-container").removeClass(m_graphOrientation);
-    $(".graph-container").addClass("bottom");
-    m_graphOrientation = "bottom";
-
-    var html = "<div class='graph-title large-text white-text'>" + m_pollResults.title + "</div><div class='graph'>";
-    for (var i = 0; i < m_pollResults.options.length; i++) {
-        var colourIndex = i % colors.length;
-        var pollOption = m_pollResults.options[i];
-        html += "<div class='rotated-container bottom'>" +
-                    "<div class='row'>" +
-                        "<div class='vote-cell'>" +
-                            "<div class='vote' style='height:" + pollOption.portionOfVotes +
-                                "%; background-color: " + colors[colourIndex] + "'>" +
-                                "<span class='vote-count medium-text white-text'>" + pollOption.votes + "</span></div>" +
-                        "</div>" +
-                        "<div class='option'><div class='option-span-wrapper'><span class='option-text medium-text white-text'>" + pollOption.text + "</span></div></div>" +
-                    "</div></div>";
-    }
-    html += "<div class='rotated-container'><div class='row'><div class='vote-cell'></div>" +
-                "<div class='option'><div class='option-span-wrapper'></div></div>" +
-            "</div></div><div class='rotated-container'><div class='row'><div class='vote-cell'></div>" +
-                "<div class='option'><div class='option-span-wrapper'></div></div>" +
-            "</div></div>";
-    $(".poll-wrapper .graph-wrapper").css({ "display": "flex" });
-    $(".graph-wrapper .graph-container").html("</div>" + html);
-    $(".rotated-container .option").css({
-        "padding": "0"
-    });
-    $(".rotated-container .vote").css({
-        "border-top-left-radius": "5px",
-        "border-bottom-left-radius": "0px",
-        "border-top-right-radius": "5px",
-        "border-bottom-right-radius": "0px"
-    });
-    updateBarMaxHeight();
-    $(".rotated-container.bottom .option-text").css({
-        "padding": "4px 0 4px 24px"
-    });
-}
-function resultsToTopHtml(colourIndex) {
-    resetOrientationButtons();
-    $(".position-image.top").addClass("selected");
-    $(".graph-container").removeClass(m_graphOrientation);
-    $(".graph-container").addClass("top");
-    m_graphOrientation = "top";
-
-    var html = "<div class='graph-title large-text white-text'>" + m_pollResults.title + "</div><div class='graph'>";
-    for (var i = 0; i < m_pollResults.options.length; i++) {
-        var colourIndex = i % colors.length;
-        var pollOption = m_pollResults.options[i];
-        html += "<div class='rotated-container top'>" +
-                    "<div class='row'>" +
-                        "<div class='option'><div class='option-span-wrapper'><span class='option-text medium-text white-text'>" + pollOption.text + "</span></div></div>" +
-                        "<div class='vote-cell'>" +
-                            "<div class='vote' style='height:" + pollOption.portionOfVotes +
-                                "%; background-color: " + colors[colourIndex] + "'>" +
-                                "<span class='vote-count medium-text white-text'>" + pollOption.votes + "</span></div>" +
-                        "</div>" +
-                    "</div></div>";
-    }
-    html += "<div class='rotated-container'><div class='row'><div class='vote-cell'></div>" +
-                "<div class='option'><div class='option-span-wrapper'></div></div>" +
-            "</div></div><div class='rotated-container'><div class='row'><div class='vote-cell'></div>" +
-                "<div class='option'><div class='option-span-wrapper'></div></div>" +
-            "</div></div>";
-    $(".poll-wrapper .graph-wrapper").css({ "display": "flex" });
-    $(".graph-wrapper .graph-container").html("</div>" + html);
-    $(".rotated-container .vote").css({
-        "border-top-left-radius": "0px",
-        "border-bottom-left-radius": "5px",
-        "border-top-right-radius": "0px",
-        "border-bottom-right-radius": "5px"
-    });
-    updateBarMaxHeight();
-    $(".rotated-container.top .option-span-wrapper span").css({
-        "padding": "4px 0 4px 4px"
-    });
-}
-
 
     $(document).on("click", ".fetch-button", function (e) {
         e.stopPropagation();
@@ -192,27 +58,6 @@ function resultsToTopHtml(colourIndex) {
         }
     });
 
-    $(document).on("change", ".view-mode", function (e) {
-        e.stopPropagation();
-        var selectedItem = $(this).find(':selected').val();
-        m_size = selectedItem;
-    });
-    $(document).on('click', '.position-image.left', function (e) {
-        e.stopPropagation();
-        orientationToDisplay("left");
-    });
-    $(document).on('click', '.position-image.top', function (e) {
-        e.stopPropagation();
-        orientationToDisplay("top");
-    });
-    $(document).on('click', '.position-image.right', function (e) {
-        e.stopPropagation();
-        orientationToDisplay("right");
-    });
-    $(document).on('click', '.position-image.bottom', function (e) {
-        e.stopPropagation();
-        orientationToDisplay("bottom");
-    });
     $(document).on('change', '.recent-poll-options', function (e) {
         var pollId = $(this).val();
         if (pollId != 0 && pollId != m_pollId) {
@@ -233,31 +78,6 @@ function resultsToTopHtml(colourIndex) {
         }
     });
 
-    function orientationToDisplay(orientation) {
-        if (orientation === "top") {
-            resultsToTopHtml();
-        } else if (orientation === "right") {
-            resultsToRhsHtml();
-        } else if (orientation === "bottom") {
-            resultsToBottomHtml()
-        } else {
-            resultsToLhsHtml();
-        }
-    }
-
-    function resetOrientationButtons() {
-        $(".position-image.top").removeClass("selected");
-        $(".position-image.right").removeClass("selected");
-        $(".position-image.bottom").removeClass("selected");
-        $(".position-image.left").removeClass("selected");
-    }
-    function updateBarMaxHeight() {
-        var pollWrapperHeight = $(".vote-cell").height();
-        $(".rotated-container .vote-cell").css({
-            "height": pollWrapperHeight
-        });
-    }
-
     function getPollResults(pollId) {
         if (pollId.length > 1) {
             return $.ajax({
@@ -268,8 +88,8 @@ function resultsToTopHtml(colourIndex) {
                 $(".fetch-error-wrapper").hide();
                 jsonToPollResults(json);
                 if (m_viewGraph) {
-                    orientationToDisplay(m_graphOrientation);
-                    //m_timeoutId = setTimeout(function () { getPollResults(pollId) }, (60 * 1000));
+                    resultsToLhsHtml();
+                    m_timeoutId = setTimeout(function () { getPollResults(pollId) }, (60 * 1000));
                 }
             }, function (error) {
                 $(".fetch-error-wrapper").show();
