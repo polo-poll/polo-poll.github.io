@@ -54,11 +54,11 @@
             });
         }
 
-        function displayCreatedMessage() {
+        function displayCreatedMessage(pollId) {
             $(".created-wrapper").show();
-            $(".created-notification .created-id").text(m_pollResults.id);
+            $(".created-notification .created-id").text(pollId);
             $(".created-notification .created-url").text(
-                            "http://trmonks-pollo.appspot.com/api/poll/" + m_pollResults.id);
+                            "http://polo-poll.github.io/vote.html?id=" + pollId);
         }
 
         $(document).ready(function () {
@@ -69,7 +69,8 @@
 
                     var hash = document.location.hash;
                     if (hash === "#true") {
-                        displayCreatedMessage();
+                        window.location.hash = "";
+                        displayCreatedMessage(pollId);
                     }
                 } catch (e) {
                     $(".fetch-error-wrapper").show();
@@ -94,12 +95,12 @@
                 </div>
                 <div class="created-wrapper">
                     <div class="created-notification small-text">
-                        <h2 class="medium-text">Congratulations!</h2>
+                        <h2 class="large-text">Congratulations!</h2>
                         Your poll has been created! <br />
                         You can share this poll with your friends by sending them your poll's unique ID or URL:
-                        <div class="created-id small-text"></div>
+                        <div class="created-id medium-text"></div>
                         or
-                        <div class="created-url small-text"></div>
+                        <div class="created-url medium-text"></div>
                     </div>
                 </div>
                 <div class="vote-wrapper">
