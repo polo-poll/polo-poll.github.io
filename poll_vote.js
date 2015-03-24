@@ -12,7 +12,6 @@ $(document).on("click", ".option-row.active .vote-button", function (e) {
             $(".fetch-error-wrapper").hide();
             $("input.url-input").val(m_pollId);
             $(".option-row").removeClass("active");
-            $(".position-wrapper").css({ "display": "block" });
             if (!data.hasOwnProperty("error")) {
                 $(clickedButton).addClass("selected");
             }
@@ -32,7 +31,6 @@ $(document).on("mouseleave", ".vote-button", function () {
 $(document).on("click", ".skip-voting", function () {
     $(".fetch-error-wrapper").hide();
     $("input.url-input").val(m_pollId);
-    $(".position-wrapper").css({ "display": "block" });
     $(".poll-wrapper .vote-wrapper").hide();
     m_viewGraph = true;
     getPollResults(m_pollId);
