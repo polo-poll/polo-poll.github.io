@@ -261,6 +261,8 @@ select.recent-poll-options {
     display: none;
     font-weight: bold;
 }
+
+
 .created-wrapper {
     background-color: #F6C14F;
     padding: 10px;
@@ -269,6 +271,13 @@ select.recent-poll-options {
     flex: 0 0 auto;
     margin-bottom: 30px;
     display: none;
+}
+.close-created-notification {
+    float: right;
+    cursor: hand;
+    font-weight: bold;
+    margin-top: -7px;
+    text-shadow: 1px 1px 2px #ae7f1c, -1px -1px 2px #D8A842, 1px -1px 2px #D8A842, -1px 1px 2px #D8A842, 1px 1px 2px #D8A842;
 }
 .created-notification h2 {
     font-size: 12pt;

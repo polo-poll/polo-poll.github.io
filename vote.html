@@ -16,12 +16,14 @@
         function resetGraphPage() {
             $(".poll-wrapper .graph-wrapper .row").remove();
             $(".poll-wrapper .graph-wrapper").hide();
+            $(".created-wrapper").hide();
         }
         function resetVotePage() {
             $(".poll-wrapper .vote-wrapper .created-wrapper").hide();
             $(".poll-wrapper .vote-wrapper .title").html("");
             $(".poll-wrapper .vote-wrapper .option-row:not(.skip-wrapper)").remove();
             $(".poll-wrapper .vote-wrapper").hide();
+            $(".created-wrapper").hide();
         }
 
         function displayViewPoll(pollId) {
@@ -61,7 +63,9 @@
             $(".create-button").on("click", function () {
                 window.location = "index.html";
             });
-
+            $(".close-created-notification").on("click", function () {
+                $(".created-wrapper").hide();
+            });
             if (document.location.search.length) {
                 try {
                     var pollId = document.location.search.substr(4);
@@ -101,6 +105,7 @@
                 </div>
                 <div class="created-wrapper">
                     <div class="created-notification small-text">
+                        <div class="close-created-notification">x</div>
                         <h2 class="large-text">Congratulations!</h2>
                         Your poll has been created! <br />
                         You can share this poll with your friends by sending them your poll's unique ID or URL:
