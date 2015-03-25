@@ -13,10 +13,6 @@
         m_viewGraph = false;
         m_timeoutId = -1;
 
-        window.onresize = function (event) {
-            updateBarMaxHeight();
-        }
-
         function resetGraphPage() {
             $(".poll-wrapper .graph-wrapper .row").remove();
             $(".poll-wrapper .graph-wrapper").hide();
