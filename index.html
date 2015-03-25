@@ -12,9 +12,9 @@
             $(".fetch-from-history .fetch-input").html(function () {
                 var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
                 var html = "";
+                html += "<select class='recent-poll-options'>";
+                html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
                 if (recentPolls != null && recentPolls.length > 0) {
-                    html += "<select class='recent-poll-options'>";
-                    html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
                     for (var i = 0; i < recentPolls.length; i++) {
                         html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
                     }
@@ -53,6 +53,7 @@
 <body>
 	<div class="wrapper">
         <div class="about"><a class="medium-text" href="about.html">About</a></div>
+        <div class="header">Polo-Poll</div>
 		<div class="content-wrapper">
             <div style="flex: 1 0 10px;"></div>
             <div class="create-wrapper">
