@@ -183,27 +183,22 @@ select.recent-poll-options {
     flex-direction: column;
 }
 .vote-wrapper .option-row {
-    flex: 1 0 auto;
+    flex: 1 0 10px;
     display: flex;
-    padding: 10px 0;
+    padding: 5px 0;
     align-items: center;
 }
 .vote-wrapper .option-row .option {
     flex: 1 0;
-}
-.vote-wrapper .option-row:not(.skip-wrapper) .option {
     border-bottom: 2px dashed silver;
     font-style: italic;
     font-size: 12pt;
 }
-.vote-wrapper .option-row.active:not(.skip-wrapper) .option.hover {
+.vote-wrapper .option-row.active:hover .option {
     border-bottom: 2px dashed #4ECDC4;
 }
-.vote-wrapper .option-row.active:not(.skip-wrapper) .option.selected {
+.vote-wrapper .option-row.selected .option {
     border-bottom: 2px dashed #4ECDC4;
-}
-.vote-wrapper .option-row:not(.skip-wrapper) .option.hover {
-    border-bottom: 2px dashed silver;
 }
 .vote-wrapper .option-row .vote-button-wrapper {
     flex: 0 0 auto;
@@ -215,25 +210,22 @@ select.recent-poll-options {
     height: 28px;
     cursor: default;
     background: url("./images/checkbox_disabled.png") top left no-repeat;
-
+}
+.vote-wrapper .option-row.selected .vote-button {
+    cursor: default;
+    background: url("./images/checkbox_disabled_selected.png") top left no-repeat;
 }
 .vote-wrapper .option-row.active .vote-button {
     background: url("./images/checkbox.png") top left no-repeat;
     cursor: hand;
 }
-.vote-wrapper .option-row .vote-button.selected {
-    cursor: default;
-    background: url("./images/checkbox_disabled_selected.png") top left no-repeat;
-}
-.vote-wrapper .option-row.active .vote-button.selected {
-    background-position-y: -56px;
-}
-.vote-wrapper .option-row.active .vote-button:hover {
+.vote-wrapper .option-row.active:hover .vote-button {
     background-position-y: -28px;
 }
 .vote-wrapper .option-row.active .vote-button:active {
     background-position-y: -56px;
 }
+
 .vote-wrapper .skip-wrapper {
     text-align: right;
     margin-right: 9px;

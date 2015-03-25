@@ -148,9 +148,9 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         var html = "";
         for (var i = 0; i < m_pollResults.options.length; i++) {
             var option = m_pollResults.options[i];
-            html += "<div class='option-row active'>" + 
+            html += "<div class='option-row active' data-id='" + option.id + "'>" +
                     "<div class='option medium-text white-text'>" + option.text + "</div>" +
-                    "<div class='vote-button-wrapper'><div class='vote-button' data-id='" + option.id + "'></div></div>" +
+                    "<div class='vote-button-wrapper'><div class='vote-button'></div></div>" +
                     "</div>";
         }
         $(".vote-wrapper .options").prepend(html);
