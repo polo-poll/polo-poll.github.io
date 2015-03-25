@@ -14,9 +14,13 @@ function escapeHtml(string) {
 
 function resultsToLhsHtml(pollOption, colourIndex) {
     var html = "<div class='graph-title large-text white-text'>" + m_pollResults.title + "</div>";
+    var maxOptionSize = 0;
     for (var i = 0; i < m_pollResults.options.length; i++) {
         var colourIndex = i % colors.length;
         var pollOption = m_pollResults.options[i];
+        if (pollOption.text.length > maxOptionSize) {
+            maxOptionSize = pollOption.text.length;
+        }
         html += "<div class='row'>" +
                 "<div class='option'><span class='option-text white-text medium-text'>" + pollOption.text + "</span></div>" +
                 "<div class='vote-cell'>" +
@@ -27,6 +31,13 @@ function resultsToLhsHtml(pollOption, colourIndex) {
     }
     $(".poll-wrapper .graph-wrapper").css({ "display": "block" });
     $(".graph-wrapper .graph-container").html(html);
+    if (maxOptionSize < 20) {
+        $(".graph-wrapper .option").css({ "flex": "0 1 140px" });
+    } else if (maxOptionSize < 50) {
+        $(".graph-wrapper .option").css({ "flex": "0 1 240px" });
+    } else if (maxOptionSize > 50) {
+        $(".graph-wrapper .option").css({ "flex": "0 1 320px" });
+    }
 }
 
     $(document).on("click", ".fetch-button", function (e) {
