@@ -116,17 +116,19 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         var biggestValue = json.success.options.reduce(function (previousValue, currentValue, index, array) {
             return Math.max(currentValue.vote_count, previousValue.vote_count);
         });
-        if (isNaN(biggestValue)) {
+        if (biggestValue == 0) {
             biggestValue = 1;
         }
         for (var i = 0; i < json.success.options.length; i++) {
             var option = json.success.options[i];
+            var calculatedPortion = ((option.vote_count / biggestValue) * 100);
+            calculatedPortion = Math.random() * 100;
             var pollOption = {
                 rank: option.rank,
                 id: option.id,
                 votes: option.vote_count,
                 text: escapeHtml(option.text),
-                portionOfVotes: ((option.vote_count / biggestValue)*100)
+                portionOfVotes: calculatedPortion
             }
             options.push(pollOption);
         }
