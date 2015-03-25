@@ -113,9 +113,15 @@ option.dummy {
     flex-direction: column;
     padding: 15px;
 }
-.fetch-options {
+.fetch-wrapper {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+.fetch-options {
+    margin: 0 auto;
 }
 .looking-text {
     font-weight: bold;

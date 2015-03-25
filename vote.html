@@ -82,10 +82,15 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="about"><a class="medium-text" href="about.html">About</a></div>
+        <div class="about">
+            <div class="create-button button medium-text">
+                Create a new poll!
+            </div>   
+            <a class="medium-text" href="about.html">About</a>
+        </div>
         <div class="header">Polo-Poll</div>
         <div class="content-wrapper">
-            <div style="flex: 1 0 10px;"></div>
+            <div style="flex: 1 0 50px;"></div>
             <div class="poll-wrapper">
                 <div class="fetch-error-wrapper small-text">
                     This poll does not exist.
@@ -111,23 +116,25 @@
                 <div class="graph-wrapper">
                     <div class="graph-container"></div>
                 </div>
-                <div class="fetch-options">
-                    <span class="looking-text medium-text">Looking for a poll?</span>
-                    <div class="fetch-from-id">
-                        <div class="fetch-text small-text">Enter its ID or URL here:</div>
-                        <div class="fetch-input">
-                            <input type="text" autofocus class="url-input small-text" placeholder="Polo-poll" />
-                            <div class="button fetch-button small-text">Fetch</div>
-                            <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                <div class="fetch-wrapper">
+                    <div class="fetch-options">
+                        <span class="looking-text medium-text">Looking for a different poll?</span>
+                        <div class="fetch-from-id">
+                            <div class="fetch-text small-text">Enter its ID or URL here:</div>
+                            <div class="fetch-input">
+                                <input type="text" autofocus class="url-input small-text" placeholder="Polo-poll" />
+                                <div class="button fetch-button small-text">Fetch</div>
+                                <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                            </div>
+                        </div><br />
+                        <div class="fetch-from-history">
+                            <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
+                            <div class="fetch-input"></div>
                         </div>
-                    </div><br />
-                    <div class="fetch-from-history">
-                        <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
-                        <div class="fetch-input"></div>
                     </div>
                 </div>
             </div>
-            <div style="flex: 1 0 10px;"></div>
+            <div style="flex: 1 0 50px;"></div>
         </div>
     </div>
 </body>
