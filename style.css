@@ -183,7 +183,7 @@ select.recent-poll-options {
     flex-direction: column;
 }
 .vote-wrapper .option-row {
-    flex: 1 0 10px;
+    flex: 1 0 30px;
     display: flex;
     padding: 5px 0;
     align-items: center;
