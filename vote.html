@@ -26,10 +26,11 @@
 
         function displayViewPoll(pollId) {
             $(".poll-wrapper").css({ "display": "flex" });
-            $(".url-input").val(pollId);
             m_pollId = pollId;
             getPollResults(m_pollId).then(function () {
+                $(".url-input").val(pollId);
                 displayVoteOptions();
+                appendPollToRecentlyViewed();
             });
         }
 
