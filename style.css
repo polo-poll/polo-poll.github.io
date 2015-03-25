@@ -160,7 +160,7 @@ option.dummy {
     display: inline-block;
 }
 select.recent-poll-options {
-    max-width: 215px;
+    width: 215px;
     display: inline-block;
 }
 
