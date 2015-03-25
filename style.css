@@ -90,6 +90,15 @@ option.dummy {
     border: 1px solid rgb(110, 134, 58);
     background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(178, 219, 89)), to(rgb(199, 244, 100)));
 }
+.header {
+    font-size: 50pt;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 0 silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver, 1px 1px 0 silver;
+    -webkit-text-stroke: 3px silver;
+    font-style: italic;
+    padding-bottom: 30px;
 }
 
 .content-wrapper {
