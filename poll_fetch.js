@@ -113,10 +113,10 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         var options = [];
         m_pollId = pollId;
 
-        var biggestValue = json.success.options.reduce(function (previousValue, currentValue, index, array) {
-            return Math.max(currentValue.vote_count, previousValue.vote_count);
-        });
-        if (biggestValue == 0) {
+        var biggestValue = Math.max.apply(Math, json.success.options.map(function (currentOption) {
+            return currentOption.vote_count;
+        }));
+        if (biggestValue == 0 || isNaN(biggestValue)) {
             biggestValue = 1;
         }
         for (var i = 0; i < json.success.options.length; i++) {
