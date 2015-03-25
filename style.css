@@ -105,7 +105,6 @@ option.dummy {
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
-    align-items: center;
 }
 .poll-wrapper {
     flex: 0 1 960px;
@@ -187,9 +186,10 @@ select.recent-poll-options {
     flex: 1 0 auto;
     display: flex;
     padding: 10px 0;
+    align-items: center;
 }
 .vote-wrapper .option-row .option {
-    flex: 1 0 auto;
+    flex: 1 0;
 }
 .vote-wrapper .option-row:not(.skip-wrapper) .option {
     border-bottom: 2px dashed silver;
@@ -274,9 +274,8 @@ select.recent-poll-options {
     padding: 10px;
     text-align: center;
     border-radius: 5px;
-    margin: 0 auto;
-    width: 90%;
-    margin-bottom: 20px;
+    flex: 0 0 auto;
+    margin-bottom: 30px;
     display: none;
 }
 .created-notification h2 {
@@ -303,7 +302,6 @@ select.recent-poll-options {
 .graph-container {
     display: flex;
     flex-direction: column;
-    flex: 1 0 auto;
 }
 .graph-container .graph {
     display: flex;
@@ -314,31 +312,35 @@ select.recent-poll-options {
     font-weight: bold;
     font-style: italic;
     padding-bottom: 5px;
+    display: table-caption;
 }
-.row {
-	padding: 10px 5px;
+.graph-wrapper .row {
+	display: flex;
+    flex: 1 0;
+    padding: 10px 0;
 }
 .graph-wrapper .option {
-	display: inline-block;
-	text-align: right;
-	width: 50%;
-	vertical-align: middle;
-	padding: 0px 10px;
+    flex: 0 1 300px;
+    border-bottom: 2px dashed silver;
+    display: flex;
+    align-items: center;
 }
 .option-text {
     font-style: italic;
 }
 .vote-cell {
-	display: inline-block;
-	vertical-align: middle;
-	width: 50%;
+	flex: 1 0 auto;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid grey;
 }
 .graph-wrapper .vote {
 	border: 1px solid grey;
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
-	padding: 3px 5px;
+	padding: 6px 10px;
 	background-color: silver;
+    border-left: none;
 }
 .vote-count {
     text-shadow: -1px -1px 2px #fff, 1px -1px 2px #fff, -1px 1px 2px #fff, 1px 1px 2px #fff;
