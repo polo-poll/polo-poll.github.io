@@ -74,48 +74,9 @@ option.dummy {
     color: black;
     text-decoration: none;
 }
-.top-bar {
-    flex: 0 0 auto;
-    padding: 5px 45px 5px 15px;
 }
-.position-wrapper {
-    display: none;
-    text-align: center;
 }
-.position-image {
-    vertical-align: middle;
-    cursor: hand;
-    width: 22px;
-    height: 20px;
-    display: inline-block;
 }
-.position-image.top {
-    background: url("./images/pos_top.png") top left no-repeat;
-}
-.position-image.top:hover {
-    background-position-y: -20px;
-}
-.position-image.right {
-    background: url("./images/pos_right.png") top left no-repeat;
-}
-.position-image.right:hover {
-    background-position-y: -20px;
-}
-.position-image.bottom {
-    background: url("./images/pos_bottom.png") top left no-repeat;
-}
-.position-image.bottom:hover {
-    background-position-y: -20px;
-}
-.position-image.left {
-    background: url("./images/pos_left.png") top left no-repeat;
-}
-.position-image.left:hover {
-    background-position-y: -20px;
-}
-.position-image.selected {
-    height: 22px;
-    border: 1px solid #4ECDC4;
 }
 
 .content-wrapper {
