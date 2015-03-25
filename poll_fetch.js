@@ -89,7 +89,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
                 jsonToPollResults(json);
                 if (m_viewGraph) {
                     resultsToLhsHtml();
-                    m_timeoutId = setTimeout(function () { getPollResults(pollId) }, (60 * 1000));
+                    //m_timeoutId = setTimeout(function () { getPollResults(pollId) }, (60 * 1000));
                 }
             }, function (error) {
                 $(".fetch-error-wrapper").show();
