@@ -58,6 +58,10 @@
         }
 
         $(document).ready(function () {
+            $(".create-button").on("click", function () {
+                window.location = "index.html";
+            });
+
             if (document.location.search.length) {
                 try {
                     var pollId = document.location.search.substr(4);

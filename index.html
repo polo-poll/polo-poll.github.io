@@ -25,6 +25,9 @@
         }
 
         $(document).ready(function () {
+            $(".create-button").on("click", function () {
+                window.location = "index.html";
+            });
             $(".fetch-button").click(function (e) {
                 var pollId = $.trim($(".url-input").val());
                 if (pollId) {
