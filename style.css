@@ -74,8 +74,21 @@ option.dummy {
     color: black;
     text-decoration: none;
 }
+.create-button {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid rgb(148, 178, 85);
+    border-radius: 5px;
+    background-color: rgb(199, 244, 100);
+	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(199, 244, 100)), to(rgb(178, 219, 89)));
+    margin-right: 10px;
 }
+.create-button:hover {
+    border: 1px solid rgb(110, 134, 58);
 }
+.create-button:active {
+    border: 1px solid rgb(110, 134, 58);
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(178, 219, 89)), to(rgb(199, 244, 100)));
 }
 }
 
