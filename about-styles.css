@@ -40,7 +40,7 @@ option.dummy {
     border-radius: 5px;
     background-color: rgb(213, 213, 213);
 	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(239, 239, 239)), to(rgb(213, 213, 213)));
-    cursor: hand;
+    cursor: pointer;
 }
 .button:hover {
     border: 1px solid rgb(105, 105, 105);
@@ -151,7 +151,7 @@ option.dummy {
     display: inline-block;
 }
 select.recent-poll-options {
-    max-width: 215px;
+    width: 215px;
     display: inline-block;
 }
 
