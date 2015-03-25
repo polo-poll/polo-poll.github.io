@@ -68,7 +68,7 @@ option.dummy {
     font-weight: bold;
     text-align: right;
     padding: 10px;
-    flex: 0 0 auto;
+    flex: 0 0 53px;
 }
 .about a {
     color: black;
