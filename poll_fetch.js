@@ -122,7 +122,6 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         for (var i = 0; i < json.success.options.length; i++) {
             var option = json.success.options[i];
             var calculatedPortion = ((option.vote_count / biggestValue) * 100);
-            calculatedPortion = Math.random() * 100;
             var pollOption = {
                 rank: option.rank,
                 id: option.id,
