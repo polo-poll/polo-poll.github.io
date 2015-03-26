@@ -13,7 +13,7 @@
         $(document).ready(function () {
             $(".fetch-button").on("click", function (e) {
                 var inputValue = $.trim($(".url-input").val());
-                var pollId = extractIdFromFetchInput(input);
+                var pollId = extractIdFromFetchInput(inputValue);
                 if (pollId) {
                     window.location = "/vote/?id=" + pollId;
                 } else {
