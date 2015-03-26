@@ -29,8 +29,11 @@ function addNewOption() {
     autosize($("textarea.option"));
 }
 
-$(document).on("click", ".delete-option .button", function () {
+$(document).on("click", ".delete-option .delete-button", function () {
     if ($(".option-row").length > 2) {
+        if ($(this).parent().siblings("textarea").hasClass("last")) {
+            $(".options-wrapper .option-row:nth-last-child(2) .option").addClass("last");
+        }
         $(this).parents(".option-row").remove();
     }
 });
