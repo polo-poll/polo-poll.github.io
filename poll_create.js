@@ -72,7 +72,7 @@ $(document).on("click", "button.submit", function () {
             }
         }).then(function (json) {
             var newPollId = json.success.id;
-            window.location = "vote.html?id=" + newPollId + "#true";
+            window.location = "/vote?id=" + newPollId + "#true";
         });
     }
 });
