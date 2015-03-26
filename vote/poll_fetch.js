@@ -44,8 +44,8 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         e.stopPropagation();
         var inputValue = $.trim($(".url-input").val());
         var new_id = "";
-        if (inputValue.indexOf("vote") > -1) {
-            var regex = /vote\?id=(.+)#?.*/g;
+        if (inputValue.indexOf("vote/?") > -1) {
+            var regex = /vote\/\?id=(.+)#?.*/g;
             var match = regex.exec(inputValue);
             new_id = match[1];
         } else {

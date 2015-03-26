@@ -31,14 +31,14 @@
             $(".fetch-button").click(function (e) {
                 var pollId = $.trim($(".url-input").val());
                 if (pollId) {
-                    window.location = "/vote?id=" + pollId;
+                    window.location = "/vote/?id=" + pollId;
                 } else {
                     $(".fetch-error").show();
                 }
             });
             $(document).on('change', '.recent-poll-options', function (e) {
                 var pollId = $(this).val();
-                window.location = "/vote?id=" + pollId;
+                window.location = "/vote/?id=" + pollId;
             });
 
             updateRecentPollsList();
@@ -54,7 +54,7 @@
         </div>
         <div class="header">Polo-Poll</div>
         <div class="content-wrapper">
-            <div style="flex: 1 0 10px;"></div>
+            <div style="flex: 1 0 50px;"></div>
             <div class="about-wrapper">
                 <div class="about-text medium-text">
                     <h3 class="large-text">About</h3>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div style="flex: 1 0 10px;"></div>
+            <div style="flex: 1 0 50px;"></div>
         </div>
     </div>
 </body>

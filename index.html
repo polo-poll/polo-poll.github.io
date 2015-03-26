@@ -31,14 +31,14 @@
             $(".fetch-button").click(function (e) {
                 var pollId = $.trim($(".url-input").val());
                 if (pollId) {
-                    window.location = "/vote?id=" + pollId;
+                    window.location = "/vote/?id=" + pollId;
                 } else {
                     $(".fetch-error").show();
                 }
             });
             $(document).on('change', '.recent-poll-options', function (e) {
                 var pollId = $(this).val();
-                window.location = "/vote?id=" + pollId;
+                window.location = "/vote/?id=" + pollId;
             });
 
             $(".create-wrapper .option-row").remove();
