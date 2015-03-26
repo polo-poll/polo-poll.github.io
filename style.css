@@ -1,0 +1,167 @@
+﻿*, html, body {
+	padding: 0; margin: 0;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 10pt;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+}
+*:focus {
+    outline: 0;
+}
+
+/* ==== WINDOW ==== */
+.wrapper {
+    width: 100%;
+    height: 100%;
+}
+input {
+	padding: 3px;
+}
+select {
+    vertical-align: middle;
+    padding: 3px;
+}
+option.dummy {
+    color: grey;
+}
+.button {
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 1px solid rgb(181, 181, 181);
+    border-radius: 5px;
+    background-color: rgb(213, 213, 213);
+	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(239, 239, 239)), to(rgb(213, 213, 213)));
+    cursor: pointer;
+}
+.button:hover {
+    border: 1px solid rgb(105, 105, 105);
+}
+.button:active { 
+    border: 1px solid rgb(105, 105, 105);
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(213, 213, 213)), to(rgb(239, 239, 239)));
+}
+.button.fetch-button {
+    padding: 4px 10px;
+    border-radius: 3px;
+}
+.tiny-text {
+    font-size: 9pt;
+}
+.small-text {
+    font-size: 10pt;
+}
+.medium-text {
+    font-size: 12pt;
+}
+.large-text {
+    font-size: 14pt;
+}
+
+.about {
+    font-weight: bold;
+    text-align: right;
+    padding: 10px;
+    margin-right: 20px;
+    min-height: 55px;
+}
+.about a {
+    margin-left: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.create-button {
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid rgb(148, 178, 85);
+    border-radius: 5px;
+    background-color: rgb(199, 244, 100);
+	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(199, 244, 100)), to(rgb(178, 219, 89)));
+}
+.create-button:hover {
+    border: 1px solid rgb(110, 134, 58);
+}
+.create-button:active {
+    border: 1px solid rgb(110, 134, 58);
+    background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(178, 219, 89)), to(rgb(199, 244, 100)));
+}
+
+.header {
+    font-size: 50pt;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 0 silver, -1px -1px 0 silver, 1px -1px 0 silver, -1px 1px 0 silver, 1px 1px 0 silver;
+    -webkit-text-stroke: 3px silver;
+    font-style: italic;
+    padding-bottom: 50px;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+.sidebar {
+    flex: 1 0 50px;
+}
+
+.fetch-wrapper {
+    text-align: center;
+    margin-top: 50px;
+    flex: 1 0 auto;
+    display: flex;
+    align-items: flex-end;
+}
+.fetch-options {
+    margin: 0 auto;
+}
+.looking-text {
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: block;
+}
+.fetch-text {
+    display: inline-block;
+    width: 260px;
+    text-align: right;
+}
+.fetch-error {
+    float: left;
+    color: #FF6B6B;
+    display: none;
+}
+.fetch-input {
+    display: inline-block;
+    width: 230px;
+    text-align: right;
+}
+.fetch-from-id {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.fetch-from-history {
+    display: inline-block;
+}
+.url-input {
+	vertical-align: middle;
+}
+.fetch-button {
+	vertical-align: middle;
+}
+.fetch-button:focus {
+    border: 1px solid rgb(105, 105, 105);
+}
+.recent-polls {
+    display: inline-block;
+}
+select.recent-poll-options {
+    width: 215px;
+    display: inline-block;
+}
+select.recent-poll-options:focus {
+    border: 1px solid rgb(105, 105, 105);
+}

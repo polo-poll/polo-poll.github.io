@@ -5,31 +5,15 @@
     <meta charset="utf-8" />
     <title>Polo-Poll - About</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="./about-styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../shared-js.js"></script>
     <script type="text/javascript">
-        function updateRecentPollsList() {
-            $(".fetch-from-history .fetch-input").html(function () {
-                var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
-                var html = "";
-                if (recentPolls != null && recentPolls.length > 0) {
-                    html += "<select class='recent-poll-options'>";
-                    html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
-                    for (var i = 0; i < recentPolls.length; i++) {
-                        html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
-                    }
-                    html += "</select>";
-                }
-                return html;
-            });
-        }
-
         $(document).ready(function () {
-            $(".create-button").on("click", function () {
-                window.location = "/";
-            });
-            $(".fetch-button").click(function (e) {
-                var pollId = $.trim($(".url-input").val());
+            $(".fetch-button").on("click", function (e) {
+                var inputValue = $.trim($(".url-input").val());
+                var pollId = extractIdFromFetchInput(input);
                 if (pollId) {
                     window.location = "/vote/?id=" + pollId;
                 } else {
@@ -54,34 +38,36 @@
         </div>
         <div class="header">Polo-Poll</div>
         <div class="content-wrapper">
-            <div style="flex: 1 0 50px;"></div>
+            <div class="sidebar"></div>
             <div class="about-wrapper">
                 <div class="about-text medium-text">
                     <h3 class="large-text">About</h3>
                     <p>Polo-Poll is a simple site for creating polls that you can share with your friends.</p>
-                    <p>Polo-Poll was initially designed as an app for Overwolf, allowing gamers and Twitch users to monitor the results of their polls while remaining in-game.</p>
+                    <p>Polo-Poll was initially designed as an app for <a class="medium-text" href="http://www.overwolf.com/" target="_blank">Overwolf</a>, allowing gamers and twitch users to monitor the results of their polls while remaining in-game.</p>
                 </div>
                 <div class="shoutouts medium-text">
                     <h3 class="large-text">Acknowledgements</h3>
-                    A thank you Jack Moore for his <a class="medium-text" href="http://www.jacklmoore.com/autosize">Autosize</a> library, which is used to help make the poll creation experience more pleasant.
+                    A thank you to Jack Moore for his <a class="medium-text" href="http://www.jacklmoore.com/autosize">Autosize</a> library, which is used to help make the poll creation experience more pleasant.
                 </div>
-                <div class="fetch-options">
-                    <span class="looking-text medium-text">Looking for a poll?</span>
-                    <div class="fetch-from-id">
-                        <div class="fetch-text small-text">Enter its ID or URL here:</div>
-                        <div class="fetch-input">
-                            <input type="text" class="url-input small-text" placeholder="Polo-poll" />
-                            <div class="button fetch-button small-text">Fetch</div>
-                            <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                <div class="fetch-wrapper">
+                    <div class="fetch-options">
+                        <span class="looking-text medium-text">Looking for a poll?</span>
+                        <div class="fetch-from-id">
+                            <div class="fetch-text small-text">Enter its ID or URL here:</div>
+                            <div class="fetch-input">
+                                <input type="text" class="url-input small-text" placeholder="Polo-poll" />
+                                <button class="button fetch-button small-text">Fetch</button>
+                                <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
+                            </div>
+                        </div><br />
+                        <div class="fetch-from-history">
+                            <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
+                            <div class="fetch-input"></div>
                         </div>
-                    </div>
-                    <div class="fetch-from-history">
-                        <div class="fetch-text small-text">Or checkout your recently viewed polls:</div>
-                        <div class="fetch-input"></div>
                     </div>
                 </div>
             </div>
-            <div style="flex: 1 0 50px;"></div>
+            <div class="sidebar"></div>
         </div>
     </div>
 </body>

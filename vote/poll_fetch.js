@@ -43,14 +43,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
     $(document).on("click", ".fetch-button", function (e) {
         e.stopPropagation();
         var inputValue = $.trim($(".url-input").val());
-        var new_id = "";
-        if (inputValue.indexOf("vote/?") > -1) {
-            var regex = /vote\/\?id=(.+)#?.*/g;
-            var match = regex.exec(inputValue);
-            new_id = match[1];
-        } else {
-            new_id = inputValue;
-        }
+        var new_id = extractIdFromFetchInput(input);
         m_viewGraph = false;
 
         if (new_id != "" && m_pollId != new_id) {

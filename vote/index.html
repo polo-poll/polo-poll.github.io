@@ -2,8 +2,12 @@
 <head>
     <title>Pollo-Poll Vote</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="./vote-style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../shared-js.js"></script>
+    <script src="./poll_fetch.js"></script>
+    <script src="./poll_vote.js"></script>
     <script type="text/javascript">
 		var colors = ["#4F79CC", "#4ECDC4", "#C7F464", "#F6C14F", "#EA8F56", "#FF6B6B", "#C44D58", "#914D8B"];
 
@@ -36,22 +40,6 @@
             });
         }
 
-        function updateRecentPollsList() {
-            $(".fetch-from-history .fetch-input").html(function () {
-                var recentPolls = JSON.parse(window.localStorage.getItem("recent-polls"));
-                var html = "";
-                html += "<select class='recent-poll-options'>";
-                html += "<option class='recent-poll-option dummy' value='0' selected>Recently viewed polls...</option>";
-                if (recentPolls != null && recentPolls.length > 0) {
-                    for (var i = 0; i < recentPolls.length; i++) {
-                        html += "<option class='recent-poll-option' value='" + recentPolls[i].id + "'>" + recentPolls[i].title + "</option>";
-                    }
-                    html += "</select>";
-                }
-                return html;
-            });
-        }
-
         function displayCreatedMessage(pollId) {
             $(".created-wrapper").show();
             $(".created-notification .created-id").text(pollId);
@@ -60,12 +48,11 @@
         }
 
         $(document).ready(function () {
-            $(".create-button").on("click", function () {
-                window.location = "/";
-            });
             $(".close-created-notification").on("click", function () {
                 $(".created-wrapper").hide();
             });
+
+            // If an ID is provided, get that poll. Else, go to create page
             if (document.location.search.length) {
                 try {
                     var pollId = document.location.search.substr(4);
@@ -85,8 +72,6 @@
             updateRecentPollsList();
         });
     </script>
-    <script src="./poll_fetch.js"></script>
-    <script src="./poll_vote.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -98,7 +83,7 @@
         </div>
         <div class="header">Polo-Poll</div>
         <div class="content-wrapper">
-            <div style="flex: 1 0 50px;"></div>
+            <div class="sidebar"></div>
             <div class="poll-wrapper">
                 <div class="fetch-error-wrapper small-text">
                     This poll does not exist.
@@ -132,7 +117,7 @@
                             <div class="fetch-text small-text">Enter its ID or URL here:</div>
                             <div class="fetch-input">
                                 <input type="text" class="url-input small-text" placeholder="Polo-poll" />
-                                <div class="button fetch-button small-text">Fetch</div>
+                                <button class="button fetch-button small-text">Fetch</button>
                                 <div class="fetch-error">Please enter a Polo-Poll ID or URL</div>
                             </div>
                         </div><br />
@@ -143,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div style="flex: 1 0 50px;"></div>
+            <div class="sidebar"></div>
         </div>
     </div>
 </body>
