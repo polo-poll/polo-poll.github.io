@@ -2,7 +2,7 @@
 <head>
     <title>Pollo-Poll Vote</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="./vote-style.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script type="text/javascript">
 		var colors = ["#4F79CC", "#4ECDC4", "#C7F464", "#F6C14F", "#EA8F56", "#FF6B6B", "#C44D58", "#914D8B"];
@@ -56,12 +56,12 @@
             $(".created-wrapper").show();
             $(".created-notification .created-id").text(pollId);
             $(".created-notification .created-url").text(
-                            "http://polo-poll.github.io/vote?id=" + pollId);
+                            "http://polo-poll.github.io/vote.html?id=" + pollId);
         }
 
         $(document).ready(function () {
             $(".create-button").on("click", function () {
-                window.location = "../";
+                window.location = "/";
             });
             $(".close-created-notification").on("click", function () {
                 $(".created-wrapper").hide();
@@ -80,7 +80,7 @@
                     $(".fetch-error-wrapper").show();
                 }
             } else {
-                window.location = "../";
+                window.location = "/";
             }
             updateRecentPollsList();
         });
@@ -94,7 +94,7 @@
             <div class="create-button button medium-text">
                 Create a new poll!
             </div>   
-            <a class="medium-text" href="../about">About</a>
+            <a class="medium-text" href="/about">About</a>
         </div>
         <div class="header">Polo-Poll</div>
         <div class="content-wrapper">

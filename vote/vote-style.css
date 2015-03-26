@@ -209,14 +209,14 @@ select.recent-poll-options {
     width: 28px;
     height: 28px;
     cursor: default;
-    background: url("./images/checkbox_disabled.png") top left no-repeat;
+    background: url("../images/checkbox_disabled.png") top left no-repeat;
 }
 .vote-wrapper .option-row.selected .vote-button {
     cursor: default;
-    background: url("./images/checkbox_disabled_selected.png") top left no-repeat;
+    background: url("../images/checkbox_disabled_selected.png") top left no-repeat;
 }
 .vote-wrapper .option-row.active .vote-button {
-    background: url("./images/checkbox.png") top left no-repeat;
+    background: url("../images/checkbox.png") top left no-repeat;
     cursor: hand;
 }
 .vote-wrapper .option-row.active:hover .vote-button {
