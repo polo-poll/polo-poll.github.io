@@ -85,13 +85,14 @@ function resultsToLhsHtml(pollOption, colourIndex) {
     });
 
     function getPollResults(pollId) {
-        if (pollId.length > 1) {
+        if (pollId.length > 0) {
             return $.ajax({
                 type: "GET",
                 url: "http://trmonks-pollo.appspot.com/api/poll/" + pollId,
                 dataType: "json"
             }).then(function (json) {
                 $(".fetch-error-wrapper").hide();
+                $(".fetch-error").hide();
                 jsonToPollResults(json);
                 if (m_viewGraph) {
                     resultsToLhsHtml();
@@ -99,6 +100,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
                 }
             }, function (error) {
                 $(".fetch-error-wrapper").show();
+                $(".fetch-error").show();
             });
         }
     }

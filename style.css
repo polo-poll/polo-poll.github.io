@@ -134,11 +134,11 @@ option.dummy {
     float: left;
     color: #FF6B6B;
     display: none;
+    margin-left: 6px;
 }
 .fetch-input {
     display: inline-block;
     width: 230px;
-    text-align: right;
 }
 .fetch-from-id {
     margin-bottom: 10px;
