@@ -81,6 +81,9 @@
 .create-wrapper .submit:hover {
     border: 1px solid rgb(110, 134, 58);
 }
+.create-wrapper .submit:focus {
+	border: 1px solid rgb(110, 134, 58);
+}
 .create-wrapper .submit:active {
     border: 1px solid rgb(110, 134, 58);
     background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, from(rgb(178, 219, 89)), to(rgb(199, 244, 100)));
