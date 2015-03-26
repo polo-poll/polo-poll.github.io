@@ -43,7 +43,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
     $(document).on("click", ".fetch-button", function (e) {
         e.stopPropagation();
         var inputValue = $.trim($(".url-input").val());
-        var new_id = extractIdFromFetchInput(input);
+        var new_id = extractIdFromFetchInput(inputValue);
         m_viewGraph = false;
 
         if (new_id != "" && m_pollId != new_id) {

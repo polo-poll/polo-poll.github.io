@@ -16,12 +16,12 @@ function updateRecentPollsList() {
 
 function extractIdFromFetchInput(input) {
     var new_id = ""
-    if (inputValue.indexOf("vote/?") > -1) {
+    if (input.indexOf("vote/?") > -1) {
         var regex = /vote\/\?id=(.+)#?.*/g;
-        var match = regex.exec(inputValue);
+        var match = regex.exec(input);
         new_id = match[1];
     } else {
-        new_id = inputValue;
+        new_id = input;
     }
     return new_id;
 }
