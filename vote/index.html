@@ -17,6 +17,33 @@
         m_viewGraph = false;
         m_timeoutId = -1;
 
+        window.onpopstate = function (e) {
+            if (e.state) {
+                try {
+                    getPollResults(e.state).then(function () {
+                        if (!m_viewGraph) {
+                            resetGraphPage();
+                            resetVotePage();
+                            displayVoteOptions();
+                        } else {
+                            resetVotePage();
+                            displayVoteOptions();
+                            $(".poll-wrapper .vote-wrapper").hide();
+                        }
+                        $("input.url-input").val(e.state);
+                    });
+                        
+                    var hash = document.location.hash;
+                    if (hash === "#true") {
+                        window.location.hash = "";
+                        displayCreatedMessage(e.state);
+                    }
+                } catch (e) {
+                    $(".fetch-error-wrapper").show();
+                }
+            }
+        };
+
         function resetGraphPage() {
             $(".poll-wrapper .graph-wrapper .row").remove();
             $(".poll-wrapper .graph-wrapper").hide();

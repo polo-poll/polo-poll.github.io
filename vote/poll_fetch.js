@@ -78,6 +78,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
                     displayVoteOptions();
                     $(".poll-wrapper .vote-wrapper").hide();
                 }
+                window.history.pushState(m_pollId, m_pollResults.title, "/vote/?id=" + m_pollId);
             });
         }
     });
