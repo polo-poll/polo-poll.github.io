@@ -23,6 +23,9 @@
                 var pollId = $(this).val();
                 window.location = "/vote/?id=" + pollId;
             });
+            $(".duplicate-help").on("click", function(e) {
+                $(".duplicate-info").toggle();
+            });
 
 
             $(".create-wrapper .option-row").remove();
@@ -56,6 +59,11 @@
                         </div>
                     </div>
                 </form>
+                <div class="duplicates-wrapper medium-text">
+                    Prevent duplicates <div class="duplicate-help">?</div> : 
+                    <input type="checkbox" class="duplicates medium-text"></input>
+                </div>
+                <div class="duplicate-info">Checking this box activates IP checks on people who try to vote. This makes it harder for someone to submit multiple votes, but also means that people on the same network will count as one vote. This feature should be left <b>off</b> if you expect your voters to be on the same network e.g. in the same building.</div>
                 <div class="submit-wrapper"><button class="button submit medium-text"></button></div>
                 <div class="fetch-wrapper">
                     <div class="fetch-options">
