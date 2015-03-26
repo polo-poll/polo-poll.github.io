@@ -53,6 +53,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
                 displayVoteOptions();
                 resetGraphPage();
                 appendPollToRecentlyViewed();
+                window.history.pushState(m_pollId, m_pollResults.title, "/vote/?id=" + m_pollId);
             });
         } else {
             if (!$.isEmptyObject(m_pollResults)) {
