@@ -21,7 +21,7 @@ function addNewOption() {
     $(".options-wrapper .option.last").removeClass("last");
     $(".options-wrapper .options").append(function () {
         return "<div class='option-row'>" +
-                "<textarea class='option last medium-text' rows='1' type='text'></textarea>" +
+                "<textarea class='option last medium-text' rows='1' type='text' maxlength='500'></textarea>" +
                 "<div class='delete-option'>" +
                 "<div class='delete-button small-text'></div></div>" +
                 "</div>";
@@ -49,6 +49,7 @@ $(document).on("click", "button.submit", function () {
     var options = [];
     var optionFields = $(".options-wrapper textarea.option");
 
+    //Check all options have been filled (only last one may remain empty)
     for (var i = 0; i < optionFields.length; i++) {
         var value = optionFields[i].value;
         if ($.trim(value) != "") {
