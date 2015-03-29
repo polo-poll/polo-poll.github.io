@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Pollo-Poll Vote</title>
+    <title>Pollo-Poll - Vote</title>
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="../style.css">
     <link rel="stylesheet" type="text/css" href="./vote-style.css">
@@ -70,8 +70,9 @@
         function displayCreatedMessage(pollId) {
             $(".created-wrapper").show();
             $(".created-notification .created-id").text(pollId);
-            $(".created-notification .created-url").text(
-                            "http://polo-poll.github.io/vote/?id=" + pollId);
+            var url = "http://polo-poll.github.io/vote/?id=" + pollId;
+            $(".created-notification .created-url").html(
+                        "<a href='" + url + "' class='medium-text' target='_blank'>" + url + "</a>");
         }
 
         $(document).ready(function () {

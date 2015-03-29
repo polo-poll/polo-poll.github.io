@@ -11,7 +11,9 @@ body {
 *:focus {
     outline: 0;
 }
-
+a {
+    color: #4F79CC;
+}
 /* ==== WINDOW ==== */
 .wrapper {
     width: 100%;
