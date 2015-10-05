@@ -88,7 +88,7 @@ function resultsToLhsHtml(pollOption, colourIndex) {
         if (pollId.length > 0) {
             return $.ajax({
                 type: "GET",
-                url: "http://trmonks-pollo.appspot.com/api/poll/" + pollId,
+                url: "https://trmonks-pollo.appspot.com/api/poll/" + pollId,
                 dataType: "json"
             }).then(function (json) {
                 $(".fetch-error-wrapper").hide();

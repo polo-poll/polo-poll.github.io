@@ -2,7 +2,7 @@ $(document).on("click", ".option-row.active", function (e) {
     var id = $(this).data("id");
     var clickedButton = this;
     $.ajax({
-        url: "http://trmonks-pollo.appspot.com/api/option/" + id + "/vote",
+        url: "https://trmonks-pollo.appspot.com/api/option/" + id + "/vote",
         type: "POST",
         dataType: "json"
     }).then(function (data) {
