@@ -39,6 +39,7 @@ $(document).on("click", ".delete-option .delete-button", function () {
 });
 
 $(document).on("click", "button.submit", function () {
+    $("button.submit").prop("disabled", true);
     var error = false;
     var title = $("textarea.title").val();
     if ($.trim(title) == '') {
