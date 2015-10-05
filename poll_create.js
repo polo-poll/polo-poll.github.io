@@ -65,7 +65,7 @@ $(document).on("click", "button.submit", function () {
     if (!error) {
         var checked = $("input.duplicates")[0].checked;
         $.ajax({
-            url: 'http://trmonks-pollo.appspot.com/api/poll',
+            url: 'https://trmonks-pollo.appspot.com/api/poll',
             type: 'post',
             dataType: 'json',
             data: {
